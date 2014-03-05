@@ -2,6 +2,7 @@
   PictureFlow - animated image show widget
   http://pictureflow.googlecode.com
 
+  Copyright (C) 2014 Leslie Zhai (xiang.zhai@i-soft.com.cn)
   Copyright (C) 2009 Ariya Hidayat (ariya@kde.org)
   Copyright (C) 2008 Ariya Hidayat (ariya@kde.org)
   Copyright (C) 2007 Ariya Hidayat (ariya@kde.org)
@@ -29,7 +30,7 @@
 #if QT_VERSION >= 0x50000
 #include <QApplication>
 #endif
-#include <X11/Xlib.h>
+#include <X11/Xlib.h>   // for Qt5 without syncX
 
 #include "pictureflow.h"
 
@@ -116,7 +117,7 @@ public:
 private:
     void m_syncX() {
 #if QT_VERSION >= 0x50000
-        XSync(m_dpy, false);
+        if (m_dpy) XSync(m_dpy, false);
 #else
         QApplication::syncX();
 #endif
@@ -137,10 +138,10 @@ int main(int argc, char ** argv)
     int wh = w->height();
     int dim = (ww > wh) ? wh : ww;
     dim = dim * 3 / 4;
-    w->setSlideSize(QSize(3*dim / 5, dim));
+    w->setSlideSize(QSize(3 * dim / 5, dim));
 #else
-    w->setSlideSize(QSize(5*40, 5*40));
-    w->resize(750, 270);
+    w->setSlideSize(QSize(6 * 40, 6 * 40));
+    w->resize(800, 400);
 #endif
 
     QStringList files = (argc > 1) ? findFiles(QString(argv[1])) : findFiles();
@@ -151,7 +152,6 @@ int main(int argc, char ** argv)
             w->addSlide(img);
 
     w->setCenterIndex(w->slideCount() / 2);
-    //w->setBackgroundColor(Qt::white);
     w->show();
 
     app->connect(app, SIGNAL(lastWindowClosed()), app, SLOT(quit()));
