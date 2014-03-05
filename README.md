@@ -16,3 +16,5 @@ make
 ```
 ./pictureflow images/
 ```
+
+![ScreenShot](https://raw.github.com/xiangzhai/pictureflow-qt/master/images/snapshot.png)
