@@ -11,10 +11,10 @@ qmake
 make
 ```
 
-## usage
+## example
 
 ```
-./pictureflow images/
+./example/example images/
 ```
 
 ![ScreenShot](https://raw.github.com/xiangzhai/pictureflow-qt/master/images/snapshot.png)

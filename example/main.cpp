@@ -2,7 +2,7 @@
   PictureFlow - animated image show widget
   http://pictureflow.googlecode.com
 
-  Copyright (C) 2014 Leslie Zhai (xiang.zhai@i-soft.com.cn)
+  Copyright (C) 2014 - 2015 Leslie Zhai (xiang.zhai@i-soft.com.cn)
   Copyright (C) 2009 Ariya Hidayat (ariya@kde.org)
   Copyright (C) 2008 Ariya Hidayat (ariya@kde.org)
   Copyright (C) 2007 Ariya Hidayat (ariya@kde.org)
